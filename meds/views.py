@@ -280,7 +280,7 @@ def success(request,doctor_id,patient_id):
     return render(request,'success.html',{'doctor_id':doctor_id,'patient_id':patient_id})
 
 def home(request):
-    return render(request,'home.html')
+    return render(request,'index.html')
 
 def Logout(request):
     return redirect('/')

@@ -10,7 +10,7 @@ distlib==0.3.7
 Django==3.2.23
 django-autoslug==1.9.9
 django-tinymce==3.6.1
-Faker==19.3.1
+Faker==18.13.0
 filelock==3.12.2
 frozenlist==1.4.0
 idna==3.4

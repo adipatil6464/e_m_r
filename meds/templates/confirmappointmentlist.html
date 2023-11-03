@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+
+
+
+        
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">sr. no.</th>
+        <th scope="col">id</th>
+        <th scope="col">date</th>
+        <th scope="col">time</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+    {% for ele in data %}
+        
+        
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{ele.patient_id}}</td>
+        <td>{{ele.contact_date}}</td>
+        <td>{{ele.contact_time}}</td>
+        <td><a href="{% url 'remove' ele.patient_id ele.doctor_id %}" class='btn btn-success'>remove</a></td>
+      </tr>
+
+    {% endfor %}
+    </tbody>
+  </table>
+  {% comment %} <a href="{% url 'doctorAppointment' doctor_id %}" class='btn btn-success'>see</a> {% endcomment %}
+        
+{% endblock %}

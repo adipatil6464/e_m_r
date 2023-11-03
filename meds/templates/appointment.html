@@ -1,0 +1,55 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class='container mt-5'>
+          
+    <form class='col-6 mx-auto card p-3 shadow-lg' enctype='multipart/form-data' method='POST'>
+        {% csrf_token %}
+        <h2>details</h2>
+        <hr>
+
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">disease description</label>
+            <input type="text" class="form-control" name='disease_description' id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+        
+
+
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+          
+    </form>
+      
+</div>
+
+
+{% if payment %}
+<div class="text-center mx-auto">
+<form action="{% url 'success' doctor_id patient_id %}"method="POST">
+  <script
+  src="https://checkout.razorpay.com/v1/checkout.js"
+  data-key="rzp_test_t3v6Og0QLCy6AZ"
+  data-amount = "{{payment.amount}}"
+  data-currency="INR"
+  data-order_id="{{payment.id}}"
+  data-buttontext="Pay with Razorpay"
+  data-name="med 1 Corp"
+  data-description="Test transaction"
+  data-image="https://example.com/your_logo.jpg"
+  data-prefill.name = ""
+  data-prefill.email="gaurav.kumar@example.com"
+  data-prefill.contact="9999999999"
+  data-theme.color="#F37254"
+  ></script>
+  <input type="hidden" custom="Show Element " name="hidden">
+</form>
+{% endif %}
+</div>
+
+
+{% endblock %}
